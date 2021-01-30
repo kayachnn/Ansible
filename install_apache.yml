@@ -7,12 +7,16 @@
   - name: update repository index
     apt:
        update_cache: true
+    when: ansible_distribution == "Ubuntu"
 
   - name: upgrade repository
     apt:
        upgrade: dist
+    when: ansible_distribution == "Ubuntu"
 
   - name: install apache2 package
     apt:
        name: apache2
        state: latest
+    when: ansible_distribution == "Ubuntu"
+
