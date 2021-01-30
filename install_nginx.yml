@@ -4,17 +4,13 @@
   become: true
   tasks:
 
-  - name: update repo index
+  - name: update repo index, upgrade repo 
     apt:
        update_cache: yes
+       upgrade: dist
     when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "20.04"
 
-  - name: upgrade dist
-    apt:
-       upgrade: dist
-    when: ansible_distribution == "Ubuntu" and ansbile_distribution_version == "20.04"
-
-  - name: install nginx 
+  - name: install nginx
     apt:
        name: nginx
        state: latest
