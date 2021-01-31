@@ -18,11 +18,11 @@
         groups: root
 
 
-  - name: add ssh key for user ansible
-    authorized_keys:
-        user: ansible
-        key: "sh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMnkp0wVuNi7UvddFM1Ru4mmOKy77pEczLA+wHebMnn ansible key"
 
+  - name: add ssh key for user ansible
+    authorized_key:
+        user: ansible
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMnkp0wVuNi7UvddFM1Ru4mmOKy77pEczLA+wHebMnn ansible key"
 
   - name: add sudoers file for user ansible
     copy: 
