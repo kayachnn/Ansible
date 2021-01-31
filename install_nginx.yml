@@ -10,6 +10,14 @@
        state: latest
        update_cache: yes
 
+
+  - name: enable nginx service
+    systemd:
+       name: nginx
+       enabled: yes
+       state: started 
+
+
   - name: copy index.html file
     tags: ubuntu, apache2
     copy: 
