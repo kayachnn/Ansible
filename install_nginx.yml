@@ -4,9 +4,17 @@
   become: true
   tasks:
 
-  - name: update repo index, upgrade repo 
+  - name: update repo index, upgrade repo, install nginx 
     package:
        name: nginx
        state: latest
        update_cache: yes
 
+  - name: copy index.html file
+    tags: ubuntu, apache2
+    copy: 
+       src: files/index.html
+       dest: /var/www/html/index.html
+       owner: root
+       group: root
+       mode: 0644
