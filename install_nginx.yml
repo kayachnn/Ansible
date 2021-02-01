@@ -2,27 +2,11 @@
 
 - hosts: googleServers
   become: true
-  tasks:
-
-  - name: update repo index, upgrade repo, install nginx 
-    package:
-       name: nginx
-       state: latest
-       update_cache: yes
+  roles:
+          - base
 
 
-  - name: enable nginx service
-    systemd:
-       name: nginx
-       enabled: yes
-       state: started 
-
-
-  - name: copy index.html file
-    tags: ubuntu, apache2
-    copy: 
-       src: files/index.html
-       dest: /var/www/html/index.html
-       owner: root
-       group: root
-       mode: 0644
+- hosts: googleServers
+  become: true
+  roles:
+          - nginx
