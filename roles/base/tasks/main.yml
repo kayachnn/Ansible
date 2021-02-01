@@ -1,4 +1,5 @@
-- name: add ssh key for user ansible
-  authorized_key:
-          user: ansible
-          key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMnkp0wVuNi7UvddFM1Ru4mmOKy77pEczLA+wHebMnn ansible key"
+- name: update and upgrade server
+  apt:
+     update_cache: true
+     upgrade: dist
+  when: ansible_distribution == "Ubuntu"

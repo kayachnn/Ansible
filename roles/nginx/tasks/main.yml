@@ -1,0 +1,19 @@
+- name: install nginx 
+  package:
+          name: nginx
+          state: latest
+  
+
+- name: enable nginx service
+  systemd:
+          name: nginx
+          enabled: yes
+          state: started
+
+- name: copy index.hmtl file
+  copy:
+          src: index.html
+          dest: /var/www/html/index.html
+          owner: root
+          group: root
+          mode: 0644

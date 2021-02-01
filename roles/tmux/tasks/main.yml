@@ -1,0 +1,7 @@
+- name: copy tmux conf file
+  copy:
+      src: tmux.conf
+      dest: /home/cihan/.tmux.conf
+      owner: cihan
+      group: cihan
+      mode: 0644
