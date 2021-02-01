@@ -2,14 +2,5 @@
 
 - hosts: all
   become: true
-  tasks:
-        name: copy tmux conf file
-        tags: tmux
-        copy:
-            src: tmux_conf/tmux.conf
-            dest: ~/.tmux.conf
-            owner: cihan
-            group: cihan
-            mode: 0644
-        
-        
+  roles:
+       - tmux
